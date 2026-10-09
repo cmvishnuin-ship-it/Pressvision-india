@@ -1,0 +1,4 @@
+# The secure trainer uses no pretrained model or external metric suite.
+torch>=2.4
+numpy>=2.0
+Pillow>=10.0

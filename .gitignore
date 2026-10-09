@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# PyInstaller output
+build/
+dist/
+
+# Runtime data: photographs, trained models, logs and state never go in git
+artifacts/
+logs/
+*.pt
+*.pth
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+*.png
+!docs/images/*.png

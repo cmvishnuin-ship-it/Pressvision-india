@@ -1,0 +1,90 @@
+{
+  "learning_only": true,
+  "read_only_roots": [
+    "\\\\fileserver\\photo-desk"
+  ],
+  "image_sets": [
+    {
+      "name": "NEWS",
+      "original": "\\\\fileserver\\photo-desk\\NEWS\\In",
+      "corrected": "\\\\fileserver\\photo-desk\\NEWS\\Out"
+    },
+    {
+      "name": "BUSINESS",
+      "original": "\\\\fileserver\\photo-desk\\BUSINESS\\In",
+      "corrected": "\\\\fileserver\\photo-desk\\BUSINESS\\Out"
+    },
+    {
+      "name": "FEATURES",
+      "original": "\\\\fileserver\\photo-desk\\FEATURES\\In",
+      "corrected": "\\\\fileserver\\photo-desk\\FEATURES\\Out"
+    }
+  ],
+  "max_pair_age_days": 3,
+  "max_aspect_change_for_training": 0.02,
+  "visual_matching": true,
+  "visual_match_threshold": 0.76,
+  "visual_filename_threshold": 0.58,
+  "visual_match_margin": 0.045,
+  "visual_match_max_aspect_change": 0.10,
+  "visual_match_candidates_per_source": 6,
+  "persistent_training_cache": true,
+  "training_cache_max_gb": 300,
+  "training_cache_hot_days": 30,
+  "training_cache_hot_max_gb": 50,
+  "training_cache_replay_max_gb": 150,
+  "training_cache_replay_patch_size": 192,
+  "training_cache_replay_patches_per_pair": 4,
+  "production_access": {
+    "start": "04:00",
+    "last_start": "09:50",
+    "end": "10:00"
+  },
+  "learning": {
+    "cpu_priority": "below_normal",
+    "max_threads": 0
+  },
+  "pretrained_backbone_shadow": {
+    "enabled": true,
+    "minimum_remaining_minutes": 10,
+    "patch_size": 64,
+    "patches_per_image": 1,
+    "batch_size": 8,
+    "samples_per_epoch": 2000,
+    "current_sample_fraction": 0.60,
+    "patience": 5
+  },
+  "global_context_shadow": {
+    "enabled": true,
+    "minimum_remaining_minutes": 10,
+    "patch_size": 64,
+    "patches_per_image": 1,
+    "patches_per_load": 4,
+    "batch_size": 8,
+    "samples_per_epoch": 2000,
+    "current_sample_fraction": 0.60,
+    "set_balance_exponent": 0.5,
+    "context_size": 128,
+    "global_loss_weight": 1.0,
+    "train_global_only": true,
+    "learning_rate": 0.0002,
+    "patience": 5
+  },
+  "pix2pix_shadow": {
+    "enabled": false,
+    "disabled_reason": "Validation PSNR plateaued at about 23 dB while CPU epochs grew past an hour. Set enabled to true to resume from its own checkpoints; it then trains last, after V2 and V3.",
+    "exact_filename_only": true,
+    "max_aspect_change": 0.02,
+    "epochs_per_session": 20,
+    "batch_size": 1,
+    "num_workers": 0,
+    "validation_fraction": 0.10,
+    "patience": 10,
+    "minimum_psnr_delta": 0.02,
+    "checkpoint_every": 5,
+    "max_periodic_checkpoints": 5,
+    "minimum_remaining_minutes": 10
+  },
+  "validation_fraction": 0.15,
+  "seed": 42
+}
